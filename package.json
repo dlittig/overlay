@@ -1,0 +1,76 @@
+{
+  "name": "overlay",
+  "version": "0.0.1",
+  "description": "Displays video content from youtube and twitch on top of other windows",
+  "main": "src/app.js",
+  "repository": "git@bitbucket.org:dlittig/overlay.git",
+  "author": "David Littig",
+  "license": "MIT",
+  "dependencies": {
+    "electron-compile": "^6.4.2",
+    "electron-forge": "^5.1.1",
+    "etch": "^0.12.8",
+    "uikit": "^3.0.0-beta.40"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "lint": "node_modules/.bin/eslint src/",
+    "test": "./node_modules/electron-mocha/bin/electron-mocha --renderer --require babel-core/register 'test/**/*.@(js|jsx)'"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2017-node7": "^0.5.2",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "electron-forge-maker-appimage": "^20.0.7",
+    "electron-forge-maker-nsis": "^20.8.0",
+    "electron-mocha": "^6.0.1",
+    "electron-prebuilt-compile": "1.8.2",
+    "eslint": "^4.18.1",
+    "eslint-plugin-react": "^7.7.0",
+    "spectron": "^3.8.0"
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "nsis"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "zip",
+          "deb",
+          "electron-forge-maker-appimage"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn",
+        "icon": "src/assets/icons/favicon",
+        "asar": true,
+        "prune": true,
+        "ignore": ".cache"
+      },
+      "electronWinstallerConfig": {
+        "name": "overlay"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "overlay"
+      }
+    }
+  }
+}

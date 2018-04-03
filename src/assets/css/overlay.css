@@ -1,0 +1,16 @@
+.uk-tab {
+  background-color: #222;
+}
+
+.uk-background-secondary .uk-description-list > dt {
+  color: #666;
+}
+
+.uk-background-secondary li.uk-active > a {
+  color: white;
+}
+
+div.uk-notification-message-primary {
+  color: grey;
+  font-size: 1rem;
+}
