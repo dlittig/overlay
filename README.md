@@ -106,4 +106,4 @@ yarn test
 ## Authors
 * **David Littig** - *Initial work* - [GitHub](https://github.com/dlittig)
 
-**Enjoy!**
+Enjoy!
