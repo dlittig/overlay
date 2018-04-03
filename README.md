@@ -2,6 +2,18 @@
 
 Overlay is an app that can be used to watch videos from plattforms like Youtube and Twitch. It lays and stays on top of other windows. The app can be used on Windows, MacOS and Linux.
 
+![Main window](https://raw.githubusercontent.com/dlittig/overlay/master/docs/main-window.png)
+
+![Video window](https://raw.githubusercontent.com/dlittig/overlay/master/docs/video-window.png)
+
+Use this tool to watch youtube videos for example or learn to code, while keeping the video on top of others without wasting space with black bars.
+
+## Features
+
+* Minimalistic UI
+* Support for Youtube, Twitch and Dailymotion
+* Portable on Linux and MacOS with `.AppImage` and `.app` format respectively
+
 ## 1 Get started
 At first we need to setup the environment to develop the app.
 
@@ -93,3 +105,5 @@ yarn test
 
 ## Authors
 * **David Littig** - *Initial work* - [GitHub](https://github.com/dlittig)
+
+**Enjoy!**
