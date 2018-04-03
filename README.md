@@ -1,6 +1,6 @@
 # Overlay
 
-Overlay is an app that can be used to watch videos from plattforms like Youtube and Twitch. It lays and stays on top of other windows. The app can be used in Windows, MacOS and Linux.
+Overlay is an app that can be used to watch videos from plattforms like Youtube and Twitch. It lays and stays on top of other windows. The app can be used on Windows, MacOS and Linux.
 
 ## 1 Get started
 At first we need to setup the environment to develop the app.
@@ -73,6 +73,15 @@ yarn make --platform=win32
 
 ## 3 Testing
 
+Tests are implemented with [Chai]() and [Chai-as-promised](). To run all the tests use the following yarn script:
+```
+yarn test
+```
+
+## 4 Upcoming
+
+* Docker image for deployment to prevent dependency requirements
+
 ## Built with
 
 * [yarn](https://github.com/yarnpkg/yarn) - package management
@@ -81,10 +90,6 @@ yarn make --platform=win32
 * [etch](https://github.com/atom/etch) - JSX components and life cycle
 * [uikit](https://github.com/uikit/uikit) - UI components
 * more
-
-## 4 Upcoming
-
-* Docker image for deployment to prevent dependency requirements
 
 ## Authors
 * **David Littig** - *Initial work* - [GitHub](https://github.com/dlittig)

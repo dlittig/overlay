@@ -16,7 +16,7 @@ export default class Button {
   render() {
     return (
       <button 
-        className="uk-button uk-button-small uk-button-default uk-width-1-1 uk-margin-small-bottom open" 
+        className="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom open" 
         on = { {click: this.state.onClick } } 
       >
         {this.state.label}&nbsp;
