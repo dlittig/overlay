@@ -23,6 +23,11 @@ The package manager used here, is `yarn`. First install `yarn` for example with 
 brew install yarn
 ```
 
+For managing large (for the large distributables) GIT LFS is used. Installed it with brew, too:
+```
+brew install git-lfs
+```
+
 ### 1.2 Installing
 After installing `yarn` the setup is pretty straight forward. The project contains a `package.json` which lists all required packages. The file `yarn.lock` contains all the packages the developer used recently.
 
