@@ -8,6 +8,9 @@ const { clipboard } = require('electron')
 const style = {
   icon: {
     height: '40px'
+  },
+  select: {
+    marginTop: '-10px'
   }
 }
 
@@ -18,14 +21,17 @@ export default class Input {
 
   constructor() {
     // Do stuff
-    this.state = { url : '' }
+    this.state = { 
+      url : '',
+      resolution : '720'
+    }
     etch.initialize(this)
   }
 
   render() {
     return (
       <div>
-        <div className = "uk-inline uk-width-1-1">
+        <div className = "uk-inline uk-width-3-4">
           <a 
             id="paste-url"
             className="uk-form-icon uk-form-icon-flip" 
@@ -34,7 +40,7 @@ export default class Input {
               'uk-icon' : 'icon: copy; ratio: 0.8',
               'uk-tooltip' : 'title: Paste from clipboard; pos: left; delay: 500'
             }}
-            on={ {click: () => this.update({url: clipboard.readText()})} }
+            on={ {click: () => this.update(Object.assign(this.state, { url: clipboard.readText() })) } }
           ></a>
           <input 
             id="video-url"
@@ -42,16 +48,27 @@ export default class Input {
             type="text" 
             placeholder="Paste video link..."
             value = { this.state.url }
-            on = {{change: (event) => { this.update({url: event.target.value}) } }}
+            on = {{change: (event) => { this.update(Object.assign(this.state, { url: event.target.value })) } }}
           />
         </div>
 
-        <Button label = "Open Video" onClick = { () => this.onOpen(this.state.url) } />
+        <div className="uk-inline uk-width-1-4" style={style.select}>
+          <select value={this.state.resolution} on={{change: (event) => {this.update(Object.assign(this.state, { resolution: event.target.value })); console.log(this.state)} }} class="uk-select" id="form-stacked-select" style={{backgroundColor : '#383838'}}>
+              <option value = "480">480p</option>
+              <option value = "720">720p</option>
+              <option value = "1080">1080p</option>
+              <option value = "1440">1440p</option>
+              <option value = "2160">2160p</option>
+          </select>
+        </div>
+
+        <Button label = "Open Video" onClick = { () => this.onOpen(this.state.url, this.state.resolution) } />
       </div>
     )
   }
 
   update(props) {
+    console.log(props)
     this.state = props
     return etch.update(this)
   }
@@ -66,9 +83,11 @@ export default class Input {
    * Click listener for button to open new window
    * @param {*} url The url the user has typed into the input field
    */
-  onOpen(url) {
+  onOpen(url, resolution) {
+    console.log(resolution)
+    console.log('---')
     const parser = new Parser()
-    const link = parser.parse(url)
+    const link = parser.parse(url, resolution)
 
     if(link != null) {
       new Window(link)
