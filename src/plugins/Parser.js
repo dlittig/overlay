@@ -11,8 +11,9 @@ export default class Parser {
   /**
    * Checks which parser should parse the video
    * @param {*} url URL passed by the user
+   * @param {*} resolution Resolution the user selected for the video
    */
-  parse(url) {
+  parse(url, resolution) {
     let parser = null
     if (url.includes('twitch.tv')) {
       parser = new TwitchParser()
@@ -25,6 +26,6 @@ export default class Parser {
       return null
     }
 
-    return parser.parse(url)
+    return parser.parse(url, resolution)
   }
 }
