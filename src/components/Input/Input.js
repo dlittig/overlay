@@ -53,12 +53,12 @@ export default class Input {
         </div>
 
         <div className="uk-inline uk-width-1-4" style={style.select}>
-          <select value={this.state.resolution} on={{change: (event) => {this.update(Object.assign(this.state, { resolution: event.target.value })); console.log(this.state)} }} class="uk-select" id="form-stacked-select" style={{backgroundColor : '#383838'}}>
-              <option value = "480">480p</option>
-              <option value = "720">720p</option>
-              <option value = "1080">1080p</option>
-              <option value = "1440">1440p</option>
-              <option value = "2160">2160p</option>
+          <select value={this.state.resolution} on={{change: (event) => {this.update(Object.assign(this.state, { resolution: event.target.value }))} }} className="uk-select" id="form-stacked-select" style={{backgroundColor : '#383838'}}>
+            <option value = "480">480p</option>
+            <option value = "720">720p</option>
+            <option value = "1080">1080p</option>
+            <option value = "1440">1440p</option>
+            <option value = "2160">2160p</option>
           </select>
         </div>
 
@@ -68,7 +68,6 @@ export default class Input {
   }
 
   update(props) {
-    console.log(props)
     this.state = props
     return etch.update(this)
   }
@@ -84,8 +83,6 @@ export default class Input {
    * @param {*} url The url the user has typed into the input field
    */
   onOpen(url, resolution) {
-    console.log(resolution)
-    console.log('---')
     const parser = new Parser()
     const link = parser.parse(url, resolution)
 
