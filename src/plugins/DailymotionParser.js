@@ -15,7 +15,7 @@ export default class DailymotionParser {
   parse(url, resolution) {
     if(DAILYMOTION.test(url) === true) {
       const video = url.replace(DAILYMOTION, '$1')
-      return `https://dailymotion.com/embed/video/${video}`
+      return `https://dailymotion.com/embed/video/${video}?quality=${resolution}`
     } else {
       // Return parser error
       notify('Failed to parse Dailymotion link', 2000)
