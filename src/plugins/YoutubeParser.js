@@ -38,17 +38,16 @@ export default class YoutubeParser {
   }
 
   /**
-   * 
-   * @param {*} resolution 
+   * Maps resolution from select field to corresponding tags
+   * @param {*} resolution Resolution selected by user
    */
   map(resolution) {
     switch(resolution) {
-      case '480': return 'large'
-      case '720': return 'hd720'
-      case '1080': return 'hd1080'
-      case '1440': return 'highres'
-      case '2160': return 'highres'
-      default: console.log(resolution); return 'null'
+    case '480': return 'large'
+    case '720': return 'hd720'
+    case '1080': return 'hd1080'
+    case '1440': return 'highres'
+    case '2160': return 'highres'
     }
   }
 }

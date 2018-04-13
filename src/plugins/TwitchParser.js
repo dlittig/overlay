@@ -23,13 +23,17 @@ export default class TwitchParser {
     }    
   }
 
+  /**
+   * Maps resolution from select field to corresponding tags
+   * @param {*} resolution Resolution selected by user
+   */
   map(resolution) {
     switch(resolution) {
-      case '480': return 'medium'
-      case '720': return 'high'
-      case '1080': return 'chunked'
-      case '1440': return 'chunked'
-      case '2160': return 'chunked'
+    case '480': return 'medium'
+    case '720': return 'high'
+    case '1080': return 'chunked'
+    case '1440': return 'chunked'
+    case '2160': return 'chunked'
     }
   }
 }
