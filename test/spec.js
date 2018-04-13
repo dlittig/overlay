@@ -88,7 +88,7 @@ describe('overlay', function() {
     describe('all parsers', function() {
       it('accepts link', function() {
         return new Parser()
-          .parse('https://www.youtube.com/watch?v=SetziJyL8Yg&list=PLYxzS__5yYQmocPoLUiEAfD1cJNjhdQar')
+          .parse('https://www.youtube.com/watch?v=SetziJyL8Yg&list=PLYxzS__5yYQmocPoLUiEAfD1cJNjhdQar', '720')
           .should.equal('https://youtube.com/embed/videoseries?list=PLYxzS__5yYQmocPoLUiEAfD1cJNjhdQar')
       })
 
@@ -100,14 +100,14 @@ describe('overlay', function() {
     describe('youtube', function() {
       it('accepts long link', function() {
         return new YoutubeParser()
-          .parse('https://www.youtube.com/watch?v=2RxHQoiDctI')
-          .should.equal('https://youtube.com/embed/2RxHQoiDctI')
+          .parse('https://www.youtube.com/watch?v=2RxHQoiDctI', '720')
+          .should.equal('https://youtube.com/embed/2RxHQoiDctI?vq=hd720')
       })
 
       it('accepts short link', function() {
         return new YoutubeParser()
-          .parse('https://youtu.be/2RxHQoiDctI')
-          .should.equal('https://youtube.com/embed/2RxHQoiDctI')
+          .parse('https://youtu.be/2RxHQoiDctI', '720')
+          .should.equal('https://youtube.com/embed/2RxHQoiDctI?vq=hd720')
       })
 
       it('accepts playlist link', function() {
@@ -124,8 +124,8 @@ describe('overlay', function() {
     describe('dailymotion', function() {
       it('accepts link', function() {
         return new DailymotionParser()
-          .parse('https://www.dailymotion.com/video/x209qoh')
-          .should.equal('https://dailymotion.com/embed/video/x209qoh')
+          .parse('https://www.dailymotion.com/video/x209qoh', '720')
+          .should.equal('https://dailymotion.com/embed/video/x209qoh?quality=720')
       })
 
       it('denies link', function() {
@@ -136,8 +136,8 @@ describe('overlay', function() {
     describe('twitch', function() {
       it('accepts link', function() {
         return new TwitchParser()
-          .parse('https://twitch.tv/dhalucard')
-          .should.equal('https://player.twitch.tv/?channel=dhalucard')
+          .parse('https://twitch.tv/dhalucard', '720')
+          .should.equal('https://player.twitch.tv/?channel=dhalucard&quality=high')
       })
 
       it('denies link', function() {
