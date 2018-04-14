@@ -1,6 +1,6 @@
 {
   "name": "overlay",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Displays video content from youtube and twitch on top of other windows",
   "main": "src/app.js",
   "repository": "git@bitbucket.org:dlittig/overlay.git",

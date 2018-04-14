@@ -19,7 +19,7 @@ export default class Help {
         , <a className="uk-link-muted" on = {{click: () => shell.openExternal('https://twitch.tv')}}>Twitch</a> or <a className="uk-link-muted" on = {{click: () => shell.openExternal('https://dailymotion.com')}}>Dailymotion</a>.</p>
 
         <h5 className="uk-heading-divider"><b>2. Paste a link</b></h5>
-        <p>Click on the video tab on the main window and paste the link into the input field.</p>
+        <p>Click on the video tab on the main window and paste the link into the input field. After that choose the preferred quality. By default the quality is set to 720p.</p>
         
         <h5 className="uk-heading-divider"><b>3. Open other videos</b></h5>
         <p>You can open multiple windows from various plattforms at the same time. Just add another link to the input field.</p>
