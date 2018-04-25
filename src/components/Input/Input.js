@@ -51,7 +51,6 @@ export default class Input {
             on = {{change: (event) => { this.update(Object.assign(this.state, { url: event.target.value })) } }}
           />
         </div>
-
         <div className="uk-inline uk-width-1-4" style={style.select}>
           <select value={this.state.resolution} on={{change: (event) => {this.update(Object.assign(this.state, { resolution: event.target.value }))} }} className="uk-select" id="form-stacked-select" style={{backgroundColor : '#383838'}}>
             <option value = "480">480p</option>

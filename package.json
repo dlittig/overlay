@@ -10,7 +10,8 @@
     "electron-compile": "^6.4.2",
     "electron-forge": "^5.1.1",
     "etch": "^0.12.8",
-    "uikit": "^3.0.0-beta.40"
+    "uikit": "^3.0.0-beta.40",
+    "url-parse": "^1.4.0"
   },
   "scripts": {
     "start": "electron-forge start",

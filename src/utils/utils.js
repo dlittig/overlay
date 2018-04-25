@@ -3,7 +3,7 @@
  * @param {*} content The message to be displayed
  * @param {*} time duration in milli seconds
  */
-export default function notify(content, time) {
+const notify = (content, time) => {
   const UIkit = require('../../node_modules/uikit/dist/js/uikit.js')
 
   UIkit.notification({
@@ -13,3 +13,22 @@ export default function notify(content, time) {
     timeout: time
   })
 }
+
+const getQueryParameters = (parameters) => {
+  // requires `url-parse`
+
+  // Normalize string to start with the parameter
+  if(parameters.startsWith('?')) {
+    parameters = parameters.replace('?', '')
+  } 
+
+  const list = []
+  parameters.split('&').forEach(function(item) {
+    const touple = item.split('=')
+    list[touple[0]] = touple[1]
+  })
+
+  return list
+}
+
+export { getQueryParameters, notify }

@@ -1,4 +1,6 @@
-import notify from '../utils/utils'
+const { notify, getQueryParameters } = require('../utils/utils.js')
+//import getQueryParameters from '../utils/utils' //
+import URL from 'url-parse'
 
 const YOUTUBE = /.*youtube\.com\/watch\?v=(.*?)/ // Used for clean video links
 const YOUTUBE_APPENDIX = /.*youtube\.com\/watch\?v=(.*?)(&(.*))/ // Used for videos with multiple query parameters following
@@ -23,7 +25,16 @@ export default class YoutubeParser {
       return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}`
     } else if(YOUTUBE_PLAYLIST.test(url) === true) {
       video = url.replace(YOUTUBE_PLAYLIST, '$2')
-      return `https://youtube.com/embed/videoseries?list=${video}`
+
+      const link = new URL(url)
+      // Parse parameters to get index
+      const parameters = getQueryParameters(link.query)
+
+      if(parameters['index'] !== null) {
+        return `https://youtube.com/embed/videoseries?list=${video}&index=${parameters['index']}`
+      } else {
+        return `https://youtube.com/embed/videoseries?list=${video}`
+      }      
     } else if(YOUTUBE_APPENDIX.test(url) === true) {
       video = url.replace(YOUTUBE_APPENDIX, '$1')
       return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}`
