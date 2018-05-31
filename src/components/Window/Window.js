@@ -9,7 +9,7 @@ const path = require('path')
 export default class Window {
 
   /**
-   * Creates a new BrowserWindow 
+   * Creates a new BrowserWindow
    * @param {*} url The url the new window should navigate to
    */
   constructor(url) {
@@ -28,18 +28,19 @@ export default class Window {
       alwaysOnTop: true,
       webPreferences: {
         nodeIntegration: false,
-        sandbox: true
+        sandbox: true,
+        webviewTag: false
       }
     })
 
     window.on('closed', () => {
       windows.splice(windows.indexOf(window), 1)
     })
-  
+
     window.once('ready-to-show', () => {
       window.show()
     })
-  
+
     window.loadURL(url)
     windows.push(window)
   }
