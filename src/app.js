@@ -1,10 +1,10 @@
-const { app, BrowserWindow } = require('electron')
+const { app, session, BrowserWindow } = require('electron')
 const { enableLiveReload } = require('electron-compile')
 const path = require('path')
 const url = require('url')
 
-// Behalten Sie eine globale Referenz auf das Fensterobjekt. 
-// Wenn Sie dies nicht tun, wird das Fenster automatisch geschlossen, 
+// Behalten Sie eine globale Referenz auf das Fensterobjekt.
+// Wenn Sie dies nicht tun, wird das Fenster automatisch geschlossen,
 // sobald das Objekt dem JavaScript-Garbagekollektor übergeben wird.
 let win
 
@@ -12,7 +12,7 @@ const createWindow = () => {
 
   // Erstellen des Browser-Fensters.
   win = new BrowserWindow({
-    width: 500, 
+    width: 500,
     height: 260,
     show: false,
     backgroundColor: '#222',
@@ -36,9 +36,15 @@ const createWindow = () => {
   // Ausgegeben, wenn das Fenster geschlossen wird.
   win.on('closed', () => {
     // Dereferenzieren des Fensterobjekts, normalerweise würden Sie Fenster
-    // in einem Array speichern, falls Ihre App mehrere Fenster unterstützt. 
+    // in einem Array speichern, falls Ihre App mehrere Fenster unterstützt.
     // Das ist der Zeitpunkt, an dem Sie das zugehörige Element löschen sollten.
     win = null
+  })
+
+  session
+  .fromPartition('overlay')
+  .setPermissionRequestHandler((webContents, permission, callback) => {
+    callback(false)
   })
 }
 
@@ -66,6 +72,6 @@ app.on('activate', () => {
   }
 })
 
-// In dieser Datei können Sie den Rest des App-spezifischen 
-// Hauptprozess-Codes einbinden. Sie können den Code auch 
+// In dieser Datei können Sie den Rest des App-spezifischen
+// Hauptprozess-Codes einbinden. Sie können den Code auch
 // auf mehrere Dateien aufteilen und diese hier einbinden.
