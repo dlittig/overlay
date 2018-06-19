@@ -23,7 +23,7 @@ class App {
   render() {
     return (
       <div>
-        <ul attributes = {{ 'uk-tab' : '' }}  className="uk-tab uk-sticky"> 
+        <ul attributes = {{ 'uk-tab' : '' }}  className="uk-tab uk-sticky">
           <li className="uk-active" id = "video-tab"><a href="#">Video</a></li>
           <li id = "help-tab"><a href="#">Help</a></li>
           <li id = "about-tab"><a href="#">About</a></li>
@@ -52,5 +52,5 @@ class App {
 // build a component instance in a standard way...
 let component = new App()
 
-//Appand the root component to the body
+// Appand the root component to the body
 document.body.appendChild(component.element)

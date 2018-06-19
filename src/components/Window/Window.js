@@ -29,7 +29,9 @@ export default class Window {
       webPreferences: {
         nodeIntegration: false,
         sandbox: true,
-        webviewTag: false
+        webviewTag: false,
+        contextIsolation: false,
+        preload: path.join(__dirname,'preload.js')
       }
     })
 
