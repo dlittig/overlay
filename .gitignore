@@ -155,7 +155,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Electron forge make output
-/out/overlay*
-/out/make/*.yml
-/out/make/*.yaml
-/out/make/*.blockmap
+/out
