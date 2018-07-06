@@ -42,10 +42,10 @@ const createWindow = () => {
   })
 
   session
-  .fromPartition('overlay')
-  .setPermissionRequestHandler((webContents, permission, callback) => {
-    callback(false)
-  })
+    .fromPartition('overlay')
+    .setPermissionRequestHandler((webContents, permission, callback) => {
+      callback(false)
+    })
 }
 
 // Diese Methode wird aufgerufen, wenn Electron mit der

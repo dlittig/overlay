@@ -1,4 +1,4 @@
-import notify from '../utils/utils'
+import { notify } from '../utils/utils'
 
 const DAILYMOTION = /.*dailymotion\.com\/video\/(.*)/
 

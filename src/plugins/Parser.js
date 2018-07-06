@@ -1,7 +1,7 @@
 import TwitchParser from './TwitchParser'
 import YoutubeParser from './YoutubeParser'
 import DailymotionParser from './DailymotionParser'
-import notify from '../utils/utils'
+import { notify } from '../utils/utils'
 
 /**
  * The front entity that passes the url to the correct parser

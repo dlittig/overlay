@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "description": "Displays video content from youtube and twitch on top of other windows",
   "main": "src/app.js",
-  "repository": "git@bitbucket.org:dlittig/overlay.git",
+  "repository": "git@github.com:dlittig/overlay.git",
   "author": "David Littig",
   "license": "GPL-3.0-or-later",
   "dependencies": {

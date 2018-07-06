@@ -31,11 +31,11 @@ export default class Input {
   render() {
     return (
       <div>
-        <div className = "uk-inline uk-width-3-4">
+        <div className="uk-inline uk-width-3-4">
           <a 
             id="paste-url"
             className="uk-form-icon uk-form-icon-flip" 
-            style = {style.icon} 
+            style={style.icon} 
             attributes={{
               'uk-icon' : 'icon: copy; ratio: 0.8',
               'uk-tooltip' : 'title: Paste from clipboard; pos: left; delay: 500'
@@ -47,21 +47,21 @@ export default class Input {
             className="uk-input uk-margin-small-bottom" 
             type="text" 
             placeholder="Paste video link..."
-            value = { this.state.url }
-            on = {{change: (event) => { this.update(Object.assign(this.state, { url: event.target.value })) } }}
+            value={ this.state.url }
+            on={{change: (event) => { this.update(Object.assign(this.state, { url: event.target.value })) } }}
           />
         </div>
         <div className="uk-inline uk-width-1-4" style={style.select}>
           <select value={this.state.resolution} on={{change: (event) => {this.update(Object.assign(this.state, { resolution: event.target.value }))} }} className="uk-select" id="form-stacked-select" style={{backgroundColor : '#383838'}}>
-            <option value = "480">480p</option>
-            <option value = "720">720p</option>
-            <option value = "1080">1080p</option>
-            <option value = "1440">1440p</option>
-            <option value = "2160">2160p</option>
+            <option value="480">480p</option>
+            <option value="720">720p</option>
+            <option value="1080">1080p</option>
+            <option value="1440">1440p</option>
+            <option value="2160">2160p</option>
           </select>
         </div>
 
-        <Button label = "Open Video" onClick = { () => this.onOpen(this.state.url, this.state.resolution) } />
+        <Button label="Open Video" onClick={ () => this.onOpen(this.state.url, this.state.resolution) } />
       </div>
     )
   }

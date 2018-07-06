@@ -17,7 +17,7 @@ export default class Button {
     return (
       <button 
         className="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom open" 
-        on = { {click: this.state.onClick } } 
+        on={ {click: this.state.onClick } } 
       >
         {this.state.label}&nbsp;
         <span attributes={{'uk-icon' : 'icon: push; ratio: 0.8'}}></span>

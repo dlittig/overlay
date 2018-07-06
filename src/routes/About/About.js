@@ -23,8 +23,8 @@ export default class About {
           </dt>
           <dd>
             Overlay is built with <span attributes={{'uk-icon' : 'icon: heart; ratio: 0.8'}}/> by David Littig 
-            <p className = "uk-margin-small-top">
-              <a on = {{click: () => shell.openExternal('https://github.com/dlittig')}} className="uk-button uk-button-default uk-button-small">
+            <p className="uk-margin-small-top">
+              <a on={{click: () => shell.openExternal('https://github.com/dlittig')}} className="uk-button uk-button-default uk-button-small">
                 <span attributes={{'uk-icon' : 'icon: github; ratio: 0.8'}}/> Github
               </a>
             </p>
@@ -40,9 +40,9 @@ export default class About {
           </dt>
           <dd>
             Spawn video windows, that stay on top of others. Implemented  
-            using <a className="uk-link-muted" on = {{click: () => shell.openExternal('https://github.com/electron/electron')}}>Electron</a>
-            , <a className="uk-link-muted" on = {{click: () => shell.openExternal('https://github.com/atom/etch')}}>Etch</a>  
-            , <a className="uk-link-muted" on = {{click: () => shell.openExternal('https://github.com/uikit/uikit')}}>UI-Kit</a> and many more.
+            using <a className="uk-link-muted" on={{click: () => shell.openExternal('https://github.com/electron/electron')}}>Electron</a>
+            , <a className="uk-link-muted" on={{click: () => shell.openExternal('https://github.com/atom/etch')}}>Etch</a>  
+            , <a className="uk-link-muted" on={{click: () => shell.openExternal('https://github.com/uikit/uikit')}}>UI-Kit</a> and many more.
           </dd>
         </dl>
       </div>
