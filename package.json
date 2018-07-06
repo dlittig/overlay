@@ -1,6 +1,6 @@
 {
   "name": "overlay",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Displays video content from youtube and twitch on top of other windows",
   "main": "src/app.js",
   "repository": "git@bitbucket.org:dlittig/overlay.git",
@@ -10,13 +10,14 @@
     "electron-compile": "^6.4.2",
     "electron-forge": "^5.1.1",
     "etch": "^0.12.8",
-    "uikit": "^3.0.0-beta.40",
+    "uikit": "^3.0.0-rc.8",
     "url-parse": "^1.4.0"
   },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "make:all": "electron-forge make --platform=linux && electron-forge make --platform=win32 && electron-forge make --platform=darwin",
     "lint": "node_modules/.bin/eslint src/",
     "test": "./node_modules/electron-mocha/bin/electron-mocha --renderer --require babel-core/register 'test/**/*.@(js|jsx)'"
   },
@@ -32,7 +33,7 @@
     "electron-forge-maker-appimage": "^20.0.7",
     "electron-forge-maker-nsis": "^20.8.0",
     "electron-mocha": "^6.0.1",
-    "electron-prebuilt-compile": "2.0.2",
+    "electron-prebuilt-compile": "2.0.3",
     "eslint": "^4.18.1",
     "eslint-plugin-react": "^7.7.0",
     "spectron": "^3.8.0"
@@ -41,7 +42,8 @@
     "forge": {
       "make_targets": {
         "win32": [
-          "nsis"
+          "nsis",
+          "squirrel"
         ],
         "darwin": [
           "zip"
@@ -56,7 +58,10 @@
         "icon": "src/assets/icons/favicon",
         "asar": true,
         "prune": true,
-        "ignore": ".cache"
+        "ignore": [
+          ".cache",
+          "docs"
+        ]
       },
       "electronWinstallerConfig": {
         "name": "overlay"
