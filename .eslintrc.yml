@@ -23,3 +23,7 @@ rules:
   semi:
     - error
     - never
+  react/jsx-equals-spacing:
+    - error
+    - never
+

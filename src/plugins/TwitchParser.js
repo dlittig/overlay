@@ -1,4 +1,4 @@
-import notify from '../utils/utils'
+import { notify } from '../utils/utils'
 
 const TWITCH = /.*twitch\.tv\/(.*)/
 
@@ -20,7 +20,7 @@ export default class TwitchParser {
       // Return parse error
       notify('Failed to parse Twitch link', 2000)
       return null
-    }    
+    }
   }
 
   /**

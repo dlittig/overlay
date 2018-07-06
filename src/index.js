@@ -23,13 +23,13 @@ class App {
   render() {
     return (
       <div>
-        <ul attributes = {{ 'uk-tab' : '' }}  className="uk-tab uk-sticky">
-          <li className="uk-active" id = "video-tab"><a href="#">Video</a></li>
-          <li id = "help-tab"><a href="#">Help</a></li>
-          <li id = "about-tab"><a href="#">About</a></li>
+        <ul attributes={{ 'uk-tab' : '' }}  className="uk-tab uk-sticky">
+          <li className="uk-active" id="video-tab"><a href="#">Video</a></li>
+          <li id="help-tab"><a href="#">Help</a></li>
+          <li id="about-tab"><a href="#">About</a></li>
         </ul>
 
-        <ul className="uk-switcher uk-margin uk-light" style = {style.switcher}>
+        <ul className="uk-switcher uk-margin uk-light" style={style.switcher}>
           <li><Video /></li>
           <li><Help /></li>
           <li><About /></li>

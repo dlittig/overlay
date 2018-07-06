@@ -1,5 +1,4 @@
-const { notify, getQueryParameters } = require('../utils/utils.js')
-//import getQueryParameters from '../utils/utils' //
+import { notify, getQueryParameters } from '../utils/utils.js'
 import URL from 'url-parse'
 
 const YOUTUBE = /.*youtube\.com\/watch\?v=(.*?)/ // Used for clean video links
@@ -30,11 +29,11 @@ export default class YoutubeParser {
       // Parse parameters to get index
       const parameters = getQueryParameters(link.query)
 
-      if(parameters['index'] !== null) {
+      if(parameters['index'] !== undefined) {
         return `https://youtube.com/embed/videoseries?list=${video}&index=${parameters['index']}`
       } else {
         return `https://youtube.com/embed/videoseries?list=${video}`
-      }      
+      }
     } else if(YOUTUBE_APPENDIX.test(url) === true) {
       video = url.replace(YOUTUBE_APPENDIX, '$1')
       return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}`
@@ -45,7 +44,7 @@ export default class YoutubeParser {
       // Return error on UI
       notify('Failed to parse Youtube link', 2000)
       return null
-    } 
+    }
   }
 
   /**
