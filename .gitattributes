@@ -1,0 +1,4 @@
+overlay*.AppImage filter=lfs diff=lfs merge=lfs -text
+overlay*.zip filter=lfs diff=lfs merge=lfs -text
+overlay*.exe filter=lfs diff=lfs merge=lfs -text
+overlay*.deb filter=lfs diff=lfs merge=lfs -text
