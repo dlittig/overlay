@@ -52,27 +52,27 @@ describe('overlay', function() {
         .browserWindow.getBounds().should.eventually.have.property('width').and.be.above(0)
         .browserWindow.getBounds().should.eventually.have.property('height').and.be.above(0)
     })
-  
+
     it('shows input field', function() {
       return app.client
         .elementIdValue('input#video-url').should.be.not.null
     })
-  
+
     it('responds to click on button', function() {
       return app.client
-        .setValue('input#video-url', 'https://www.youtube.com/watch?v=kN1Czs0m1SU') 
+        .setValue('input#video-url', 'https://www.youtube.com/watch?v=kN1Czs0m1SU')
         .element('button.open').isEnabled().should.eventually.be.true
-        //.getText('input#video-url').should.eventually.equal('')
         .click('button.open').waitUntilWindowLoaded(5000).getWindowCount().should.eventually.have.at.least(2)
-        .setValue('input#video-url', '') 
+        .setValue('input#video-url', '')
     })
 
     it('pastes from clipboard', function() {
       return app.electron.clipboard.writeText('https://www.youtube.com/watch?v=kN1Czs0m1SU')
+        .setValue('input#video-url', '')
         .element('a#paste-url').click()
         .getValue('input#video-url').should.eventually.equal('https://www.youtube.com/watch?v=kN1Czs0m1SU')
     })
-  
+
     it('opens help', function() {
       return app.client
         .element('li#help-tab').click()
@@ -82,7 +82,7 @@ describe('overlay', function() {
       return app.client
         .element('li#about-tab').click()
     })
-  })  
+  })
 
   describe('parsers', function() {
     describe('all parsers', function() {
@@ -96,7 +96,7 @@ describe('overlay', function() {
         return new Parser().parse('') === null
       })
     })
-    
+
     describe('youtube', function() {
       it('accepts long link', function() {
         return new YoutubeParser()
