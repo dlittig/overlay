@@ -2,7 +2,7 @@ import React from 'react'
 
 const style = {
   select: {
-    marginTop: '-11px'
+    marginTop: '-10px'
   }
 }
 
