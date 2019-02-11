@@ -1,5 +1,5 @@
 <!doctype html>
-<html style = "background-color: #222">
+<html style="background-color: #222">
   <head>
     <title>Overlay</title>
     <meta charset="utf-8">
@@ -7,9 +7,35 @@
     <link rel="stylesheet" type="text/css" href="../node_modules/uikit/dist/css/uikit.min.css">
     <link rel="stylesheet" href="assets/css/overlay.css">
   </head>
-  <body class = "uk-background-secondary" >
-    <script src = "./index.js"></script>
-    <script src = "../node_modules/uikit/dist/js/uikit.min.js"></script>
-    <script src = "../node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+  <body class="uk-background-secondary">
+    <style>
+      @font-face {
+        font-family: "Roboto";
+        src: url("./fonts/Roboto-Regular.ttf");
+      }
+
+      body, * {
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      }
+    </style>
+
+    <div id="App"></div>
+
+    <script>
+      import React from 'react'
+      import ReactDOM from 'react-dom'
+
+      const render = () => {
+        const App = require('./index').default
+        ReactDOM.render(<App />, document.getElementById('App'))
+      }
+
+      render()
+      if (module.hot) {
+        module.hot.accept(render)
+      }
+    </script>
+    <script src="../node_modules/uikit/dist/js/uikit.min.js"></script>
+    <script src="../node_modules/uikit/dist/js/uikit-icons.min.js"></script>
   </body>
 </html>

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+      "outDir": "./dist/",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "preserveConstEnums": true,
+      "module": "commonjs",
+      "target": "es5",
+      "jsx": "react"
+  },
+  "include": [
+      "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

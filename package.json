@@ -1,6 +1,6 @@
 {
   "name": "overlay",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Displays video content from youtube and twitch on top of other windows",
   "main": "src/app.js",
   "repository": "git@github.com:dlittig/overlay.git",
@@ -9,8 +9,10 @@
   "dependencies": {
     "electron-compile": "^6.4.2",
     "electron-forge": "^5.1.1",
-    "etch": "^0.12.8",
-    "uikit": "^3.0.0-rc.25",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "typescript": "^3.3.3",
+    "uikit": "^3.0.1",
     "url-parse": "^1.4.0"
   },
   "scripts": {
@@ -22,6 +24,9 @@
     "test": "./node_modules/electron-mocha/bin/electron-mocha --renderer --require babel-core/register 'test/**/*.@(js|jsx)'"
   },
   "devDependencies": {
+    "@types/react": "^16.8.2",
+    "@types/react-dom": "^16.8.0",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -36,6 +41,7 @@
     "electron-prebuilt-compile": "3.0.10",
     "eslint": "^4.18.1",
     "eslint-plugin-react": "^7.7.0",
+    "source-map-loader": "^0.2.4",
     "spectron": "^5.0.0"
   },
   "config": {
