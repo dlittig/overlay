@@ -8,10 +8,9 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "electron-compile": "^6.4.2",
-    "electron-forge": "^5.1.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "uikit": "^3.0.1",
+    "uikit": "^3.0.0",
     "url-parse": "^1.4.0"
   },
   "scripts": {
@@ -31,6 +30,7 @@
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
+    "electron-forge": "^5.1.1",
     "electron-forge-maker-appimage": "^20.0.7",
     "electron-forge-maker-nsis": "^20.8.0",
     "electron-mocha": "^6.0.1",
@@ -57,7 +57,7 @@
       "electronPackagerConfig": {
         "packageManager": "yarn",
         "icon": "src/assets/icons/favicon",
-        "asar": true,
+        "asar": false,
         "prune": true,
         "ignore": [
           ".cache",
