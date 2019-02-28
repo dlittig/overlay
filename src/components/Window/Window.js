@@ -1,4 +1,3 @@
-import React from 'react'
 import electron from 'electron'
 import * as globals from '../../globals'
 
@@ -7,14 +6,12 @@ const path = require('path')
 /**
  * This entity represents every new window that can be spawned
  */
-export default class Window extends React.Component {
+export default class Window {
 
   /**
    * Creates a new BrowserWindow
-   * @param {*} props Props containing the url the new window should navigate to
    */
-  componentWillMount() {
-    const {url} = this.props
+  constructor(url) {
     if(url == null) return
 
     // Get windows from defaults

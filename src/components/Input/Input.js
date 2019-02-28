@@ -1,6 +1,7 @@
 import React from 'react'
-
-const { clipboard } = require('electron')
+import VideoAction from '../../store/actions/Video'
+import { connect } from 'react-redux'
+import { clipboard } from 'electron'
 
 const style = {
   icon: {
@@ -8,12 +9,18 @@ const style = {
   }
 }
 
-/**
- * This component is the input field where URLs can be typed in
- */
-export default class Input extends React.Component {
+class Input extends React.Component {
   state = {
-    url : ''
+    text: ''
+  }
+
+  componentWillMount() {
+    this.setState({text: this.props.url})
+  }
+
+  onChange = value => {
+    this.setState({text: value})
+    this.props.dispatch(VideoAction.setUrl(value))
   }
 
   render() {
@@ -25,17 +32,21 @@ export default class Input extends React.Component {
           style={style.icon}
           uk-icon="icon: copy; ratio: 0.8"
           uk-tooltip="title: Paste from clipboard; pos: left; delay: 500"
-          onClick={() => this.setState({url: clipboard.readText()})}
+          onClick={() => this.onChange(clipboard.readText())}
         ></a>
         <input
           id="video-url"
           className="uk-input uk-margin-small-bottom"
           type="text"
           placeholder="Paste video link..."
-          value={this.state.url}
-          onChange={event => this.setState({url: event.target.value})}
+          value={this.state.text}
+          onChange={event => this.onChange(event.target.value)}
         />
       </div>
     )
   }
 }
+
+const mapStateToProps = ({video: {url}}) => ({url})
+
+export default connect(mapStateToProps)(Input)
