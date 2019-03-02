@@ -2687,16 +2687,16 @@ electron-packager@^11.0.0:
     semver "^5.3.0"
     yargs-parser "^9.0.2"
 
-electron-prebuilt-compile@3.0.13:
-  version "3.0.13"
-  resolved "https://registry.yarnpkg.com/electron-prebuilt-compile/-/electron-prebuilt-compile-3.0.13.tgz#3ea17355daad8e593d51f0b73967c42f7df9353d"
-  integrity sha512-x7O23C3erTVMYZkiHWS5pems3hU+6HnO2lO7OPHfDU9Eb6TUNve5R+k3iWHctI9V31Y6Cu0dsbkamR1DvCfM+A==
+electron-prebuilt-compile@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/electron-prebuilt-compile/-/electron-prebuilt-compile-4.0.0.tgz#3262fe69fa343022353e4c8bd16c60e8f181c47e"
+  integrity sha512-mIQSctVTH6zq0P5oBb5XI+aT6grCIXIF3ntIxx45HNoAQggMUmA9Gf1dUquila3gSHzMN6pcN7ClpEPXPvFm+w==
   dependencies:
     babel-plugin-array-includes "^2.0.3"
     babel-plugin-transform-async-to-generator "^6.24.1"
     babel-preset-es2016-node5 "^1.1.2"
     babel-preset-react "^6.24.1"
-    electron "3.0.13"
+    electron "4.0.0"
     electron-compile "*"
     electron-compilers "*"
     yargs "^6.6.0"
@@ -2780,10 +2780,10 @@ electron-wix-msi@^2.1.1:
     lodash "^4.17.10"
     uuid "^3.3.2"
 
-electron@3.0.13:
-  version "3.0.13"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-3.0.13.tgz#7b065a3d130c6b6379dc78d49515e03f392c1303"
-  integrity sha512-tfx5jFgXhCmpe6oPjcesaRj7geHqQxrJdbpseanRzL9BbyYUtsj0HoxwPAUvCx4+52P6XryBwWTvne/1eBVf9Q==
+electron@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-4.0.0.tgz#6ccb40cc8bf2d49954dcea73b97ae7ad12ee04b3"
+  integrity sha512-3XPG/3IXlvnT1oe1K6zEushoD0SKbP8xwdrL10EWGe6k2iOV4hSHqJ8vWnR8yZ7VbSXmBRfomEFDNAo/q/cwKw==
   dependencies:
     "@types/node" "^8.0.24"
     electron-download "^4.1.0"
