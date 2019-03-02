@@ -45,8 +45,7 @@
     "forge": {
       "make_targets": {
         "win32": [
-          "nsis",
-          "squirrel"
+          "nsis"
         ],
         "darwin": [
           "zip"
