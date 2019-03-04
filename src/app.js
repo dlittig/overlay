@@ -9,13 +9,15 @@ const url = require('url')
 let win
 
 const createWindow = () => {
-
   // Erstellen des Browser-Fensters.
   win = new BrowserWindow({
     width: 500,
     height: 260,
     show: false,
     backgroundColor: '#222',
+    webPreferences: {
+      nodeIntegration: true,
+    },
     icon: path.join(__dirname, 'assets/icons/favicon.png')
   })
 

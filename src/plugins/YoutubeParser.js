@@ -1,45 +1,61 @@
 import { notify, getQueryParameters } from '../utils/utils.js'
-import URL from 'url-parse'
 
 const YOUTUBE = /.*youtube\.com\/watch\?v=(.*?)/ // Used for clean video links
 const YOUTUBE_APPENDIX = /.*youtube\.com\/watch\?v=(.*?)(&(.*))/ // Used for videos with multiple query parameters following
 const YOUTUBE_SHORT = /.*youtu\.be\/(.*)/
+const YOUTUBE_SHORT_APPENDIX = /.*youtu\.be\/(.*)\?(.*)/
 const YOUTUBE_PLAYLIST = /.*youtube\.com\/watch\?v=(.*)&list=(.*)/
 
 /**
  * Parser for youtube videos
  */
 export default class YoutubeParser {
-
   /**
    * Creates embed link for youtube video. Spawns notification otherwise
    * @param {*} url URL of the video
    * @param {*} resolution Resolution the user selected for the video
    */
   parse(url, resolution) {
+    // Parse parameters to get index
+    const parameters = getQueryParameters(url)
     let video = ''
 
-    if(YOUTUBE_SHORT.test(url) === true) {
+    if(YOUTUBE_SHORT_APPENDIX.test(url) === true) {
+      video = url.replace(YOUTUBE_SHORT_APPENDIX, '$1')
+
+      if(parameters.t) {
+        const {t} = parameters
+        return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}&start=${t}`
+      } else return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}`
+
+    } else if(YOUTUBE_SHORT.test(url) === true) {
       video = url.replace(YOUTUBE_SHORT, '$1')
+
       return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}`
+
     } else if(YOUTUBE_PLAYLIST.test(url) === true) {
       video = url.replace(YOUTUBE_PLAYLIST, '$2')
 
-      const link = new URL(url)
-      // Parse parameters to get index
-      const parameters = getQueryParameters(link.query)
-
-      if(parameters['index'] !== undefined) {
-        return `https://youtube.com/embed/videoseries?list=${video}&index=${parameters['index']}`
+      if(parameters.index) {
+        const {index} = parameters
+        return `https://youtube.com/embed/videoseries?list=${video}&index=${index}`
       } else {
         return `https://youtube.com/embed/videoseries?list=${video}`
       }
+
     } else if(YOUTUBE_APPENDIX.test(url) === true) {
       video = url.replace(YOUTUBE_APPENDIX, '$1')
-      return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}`
+
+      if(parameters.t) {
+        const {t} = parameters
+        return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}&start=${t}`
+      } else return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}`
+
     } else if(YOUTUBE.test(url) === true) {
       video = url.replace(YOUTUBE, '$1')
+
       return `https://youtube.com/embed/${video}?vq=${this.map(resolution)}`
+
     } else {
       // Return error on UI
       notify('Failed to parse Youtube link', 2000)

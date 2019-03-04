@@ -110,6 +110,12 @@ describe('overlay', function() {
           .should.equal('https://youtube.com/embed/2RxHQoiDctI?vq=hd720')
       })
 
+      it('creates timestamp link', function() {
+        return new YoutubeParser()
+          .parse('https://youtu.be/2RxHQoiDctI?t=10', '720')
+          .should.equal('https://youtube.com/embed/2RxHQoiDctI?vq=hd720&start=10')
+      })
+
       it('accepts playlist link', function() {
         return new YoutubeParser()
           .parse('https://www.youtube.com/watch?v=SetziJyL8Yg&list=PLYxzS__5yYQmocPoLUiEAfD1cJNjhdQar')

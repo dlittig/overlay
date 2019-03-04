@@ -16,12 +16,13 @@
     "url-parse": "^1.4.0"
   },
   "scripts": {
+    "clean": "rm -rf .cache",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "make:all": "electron-forge make --platform=linux && electron-forge make --platform=win32 && electron-forge make --platform=darwin",
+    "make:all": "electron-forge make --platform=linux && electron-forge make --platform=win32 && electron-forge make --platform=darwin && yarn clean",
     "lint": "node_modules/.bin/eslint src/",
-    "test": "./node_modules/electron-mocha/bin/electron-mocha --renderer --require babel-core/register 'test/**/*.@(js|jsx)'"
+    "test": "yarn clean && ./node_modules/electron-mocha/bin/electron-mocha --renderer --require babel-core/register 'test/**/*.@(js|jsx)' && yarn clean"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",

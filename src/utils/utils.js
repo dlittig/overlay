@@ -1,3 +1,5 @@
+import URL from 'url-parse'
+
 /**
  * Notifies the user about some circumstance
  * @param {*} content The message to be displayed
@@ -14,15 +16,15 @@ const notify = (content, time) => {
   })
 }
 
-const getQueryParameters = (parameters) => {
-  // requires `url-parse`
+const getQueryParameters = url => {
+  let parameters = new URL(url).query
 
   // Normalize string to start with the parameter
   if(parameters.startsWith('?')) {
     parameters = parameters.replace('?', '')
-  } 
+  }
 
-  const list = []
+  const list = {}
   parameters.split('&').forEach(function(item) {
     const touple = item.split('=')
     list[touple[0]] = touple[1]
