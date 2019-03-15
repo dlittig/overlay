@@ -1,6 +1,7 @@
 import TwitchParser from './TwitchParser'
 import YoutubeParser from './YoutubeParser'
 import DailymotionParser from './DailymotionParser'
+import FacebookParser from './FacebookParser'
 import { notify } from '../utils/utils'
 
 /**
@@ -21,6 +22,8 @@ export default class Parser {
       parser = new YoutubeParser()
     } else if (url.includes('dailymotion.com')) {
       parser = new DailymotionParser()
+    } else if (url.includes('facebook.com')) {
+      parser = new FacebookParser()
     } else {
       notify('This URL is not supported.', 2000)
       return null
