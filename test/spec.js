@@ -9,6 +9,7 @@ import DailymotionParser from '../src/plugins/DailymotionParser'
 import YoutubeParser from '../src/plugins/YoutubeParser'
 import TwitchParser from '../src/plugins/TwitchParser'
 import Parser from '../src/plugins/Parser'
+import FacebookParser from '../src/plugins/FacebookParser';
 
 chai.should()
 chai.use(chaiAsPromised)
@@ -132,6 +133,18 @@ describe('overlay', function() {
         return new DailymotionParser()
           .parse('https://www.dailymotion.com/video/x209qoh', '720')
           .should.equal('https://dailymotion.com/embed/video/x209qoh?quality=720')
+      })
+
+      it('denies link', function() {
+        return new DailymotionParser().parse('') === null
+      })
+    })
+
+    describe('facebook', function() {
+      it('accepts link', function() {
+        return new FacebookParser()
+          .parse('https://www.facebook.com/facebook/videos/10153231379946729/', '720')
+          .should.equal('https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F10153231379946729%2F')
       })
 
       it('denies link', function() {

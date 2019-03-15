@@ -1,6 +1,6 @@
 import { notify } from '../utils/utils'
 
-const FACEBOOK = /.*facebook\.com\/facebook\/videos\/(.*)/
+const FACEBOOK = /.*facebook\.com\/facebook\/videos\/(\d*)(\/?)/
 
 /**
  * Parser for dailymotion videos
