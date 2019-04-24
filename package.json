@@ -22,13 +22,12 @@
     "make": "electron-forge make",
     "make:all": "electron-forge make --platform=linux && electron-forge make --platform=win32 && electron-forge make --platform=darwin && yarn clean",
     "lint": "node_modules/.bin/eslint src/",
-    "test": "yarn clean && ./node_modules/electron-mocha/bin/electron-mocha --renderer --require babel-core/register 'test/**/*.@(js|jsx)' && yarn clean"
+    "test": "node_modules/electron-mocha/bin/electron-mocha --renderer --require babel-core/register 'test/**/*.@(js|jsx)' && yarn clean"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "babel-preset-es2017-node7": "^0.5.2",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
@@ -40,6 +39,7 @@
     "electron-prebuilt-compile": "4.0.0",
     "eslint": "^4.18.1",
     "eslint-plugin-react": "^7.7.0",
+    "prop-types": "^15.7.2",
     "spectron": "^5.0.0"
   },
   "config": {
