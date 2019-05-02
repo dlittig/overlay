@@ -1,4 +1,5 @@
 import URL from 'url-parse'
+global.UIkit = {}
 
 /**
  * Notifies the user about some circumstance
@@ -6,7 +7,7 @@ import URL from 'url-parse'
  * @param {*} time duration in milli seconds
  */
 const notify = (content, time) => {
-  const UIkit = require('../../node_modules/uikit/dist/js/uikit.js')
+  //const UIkit = require('../../node_modules/uikit/dist/js/uikit.min.js')
 
   UIkit.notification({
     message: content,

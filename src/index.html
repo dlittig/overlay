@@ -1,35 +1,30 @@
 <!doctype html>
-<html style="background-color: #222">
+<html style="background-color: #444">
   <head>
     <title>Overlay</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../node_modules/uikit/dist/css/uikit.min.css">
-    <link rel="stylesheet" href="assets/css/overlay.css">
   </head>
-  <body class="uk-background-secondary">
+  <body>
+    <style>
+      @font-face {
+        font-family: 'Plex';
+        src: url("./assets/fonts/IBMPlexSans-Regular.otf");
+      }
+
+      @font-face {
+        font-family: 'Plex';
+        src: url("./assets/fonts/IBMPlexSans-Bold.otf");
+        font-weight: bold;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Plex'
+      }
+    </style>
     <div id="App"></div>
 
-    <script>
-      import React from 'react'
-      import ReactDOM from 'react-dom'
-      import { Provider } from 'react-redux'
-      import { store } from './store'
-
-      const render = () => {
-        const App = require('./index').default
-        ReactDOM.render(
-          <Provider store={store}>
-            <App />
-          </Provider>, document.getElementById('App'))
-      }
-
-      render()
-      if (module.hot) {
-        module.hot.accept(render)
-      }
-    </script>
-    <script src="../node_modules/uikit/dist/js/uikit.min.js"></script>
-    <script src="../node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

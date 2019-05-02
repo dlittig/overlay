@@ -3,7 +3,6 @@ const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 const path = require('path')
 const electronPath = path.join(__dirname, '../node_modules', '.bin', 'electron')
-const exec = require('child_process').exec
 
 import DailymotionParser from '../src/plugins/DailymotionParser'
 import YoutubeParser from '../src/plugins/YoutubeParser'
@@ -17,21 +16,18 @@ chai.use(chaiAsPromised)
 let app
 
 describe('overlay', function() {
-  this.timeout(60000)
+  this.timeout(20000)
 
   before(() => new Promise((resolve) => {
     // Use electron-compile to activate babel and webpack
     // Following this scheme: https://github.com/electron-userland/electron-compile/issues/178
-    exec(`${path.resolve(__dirname, '../node_modules/.bin/electron-compile')} ${path.join(__dirname, '..')}`, () => {
-      app = new Application({
+    app = new Application({
         path: electronPath,
-        args: [path.join(__dirname, '..')]
-      })
-
-      app.start().then(resolve)
+        args: [path.join(__dirname, '..', 'src', 'app.js')]
     })
-  })
-  )
+
+    app.start().then(resolve)
+  }))
 
   before(function() {
     chaiAsPromised.transferPromiseness = app.transferPromiseness
