@@ -58,26 +58,26 @@ describe('overlay', function() {
     it('responds to click on button', function() {
       return app.client
         .setValue('input#video-url', 'https://www.youtube.com/watch?v=kN1Czs0m1SU')
-        .element('button.open').isEnabled().should.eventually.be.true
-        .click('button.open').waitUntilWindowLoaded(5000).getWindowCount().should.eventually.have.at.least(2)
+        .element('button#open').isEnabled().should.eventually.be.true
+        .click('button#open').waitUntilWindowLoaded(5000).getWindowCount().should.eventually.have.at.least(2)
         .setValue('input#video-url', '')
     })
 
     it('pastes from clipboard', function() {
       return app.electron.clipboard.writeText('https://www.youtube.com/watch?v=kN1Czs0m1SU')
         .setValue('input#video-url', '')
-        .element('a#paste-url').click()
+        .element('button#paste-url').click()
         .getValue('input#video-url').should.eventually.equal('https://www.youtube.com/watch?v=kN1Czs0m1SU')
     })
 
     it('opens help', function() {
       return app.client
-        .element('li#help-tab').click()
+        .element('div#help-tab').click()
     })
 
     it('opens about', function() {
       return app.client
-        .element('li#about-tab').click()
+        .element('div#about-tab').click()
     })
   })
 

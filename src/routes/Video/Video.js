@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { style } from './Video.style'
+import withStyles from 'react-jss'
 
 import Input from '../../components/Input'
 import Button from '../../components/Button'
@@ -12,11 +14,11 @@ import VideoAction from '../../store/actions/Video'
  * Click listener for button to open new window
  * @param {*} url The url the user has typed into the input field
  */
-const onOpen = (dispatch, url, resolution) => {
+const onOpen = (setParsedLink, url, resolution) => {
   const parser = new Parser()
   const parsedLink = parser.parse(url, resolution) || ''
 
-  dispatch(VideoAction.setParsedLink(parsedLink))
+  setParsedLink(parsedLink)
   if(parsedLink !== '' && parsedLink !== null) {
     new Window(parsedLink)
   }
@@ -25,16 +27,22 @@ const onOpen = (dispatch, url, resolution) => {
 /**
  * Wraps around the input field and represents the `video` tab
  */
-const Video = props => {
+const Video = ({classes, setParsedLink, url, resolution}) => {
   return (
-    <div className="uk-margin-xlarge-top">
+    <div className={classes.video}>
       <Input />
-      <Dropdown />
-      <Button label="Open Video" onClick={() => onOpen(props.dispatch, props.url, props.resolution)} />
+      <div className={classes.action}>
+        <Dropdown />
+        <Button label="Open Video" onClick={() => onOpen(setParsedLink, url, resolution)} />
+      </div>
     </div>
   )
 }
 
 const mapStateToProps = ({video: {url, resolution}}) => ({url, resolution})
 
-export default connect(mapStateToProps)(Video)
+const mapDispatchToProps = {
+  setParsedLink: VideoAction.setParsedLink
+}
+
+export default withStyles(style)(connect(mapStateToProps, mapDispatchToProps)(Video))

@@ -7,6 +7,7 @@
   "author": "David Littig",
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "classnames": "^2.2.6",
     "electron-compile": "^6.4.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",

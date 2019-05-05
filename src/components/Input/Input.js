@@ -1,13 +1,12 @@
 import React from 'react'
+
+import withStyles from 'react-jss'
 import VideoAction from '../../store/actions/Video'
+import { MdContentPaste } from "react-icons/md"
+
+import { style } from './Input.style'
 import { connect } from 'react-redux'
 import { clipboard } from 'electron'
-
-const style = {
-  icon: {
-    height: '40px'
-  }
-}
 
 class Input extends React.Component {
   state = {
@@ -24,24 +23,26 @@ class Input extends React.Component {
   }
 
   render() {
+    const {classes} = this.props
+
     return (
-      <div className="uk-inline uk-width-3-4">
-        <a
-          id="paste-url"
-          className="uk-form-icon uk-form-icon-flip"
-          style={style.icon}
-          uk-icon="icon: copy; ratio: 0.8"
-          uk-tooltip="title: Paste from clipboard; pos: left; delay: 500"
-          onClick={() => this.onChange(clipboard.readText())}
-        ></a>
+      <div className={classes.inputWrapper}>
         <input
+          className={classes.input}
           id="video-url"
-          className="uk-input uk-margin-small-bottom"
           type="text"
           placeholder="Paste video link..."
           value={this.state.text}
           onChange={event => this.onChange(event.target.value)}
         />
+        <button
+          id="paste-url"
+          className={classes.button}
+          onClick={() => this.onChange(clipboard.readText())}
+          title="Paste from clipboard"
+        >
+          <MdContentPaste />
+        </button>
       </div>
     )
   }
@@ -49,4 +50,4 @@ class Input extends React.Component {
 
 const mapStateToProps = ({video: {url}}) => ({url})
 
-export default connect(mapStateToProps)(Input)
+export default withStyles(style)(connect(mapStateToProps)(Input))

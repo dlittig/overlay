@@ -1,7 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import Item from './Item'
 import { style } from './Navigation.style'
-import { MdVideoLibrary } from "react-icons/md"
+import withStyles from 'react-jss'
 
 class Navigation extends React.Component {
   state = {
@@ -18,14 +20,19 @@ class Navigation extends React.Component {
   }
 
   render() {
+    const {classes} = this.props
+
     return (
-      <div className="Navigation" style={style.navigation}>
-        <Item text="Overlay" icon={<MdVideoLibrary />} />
+      <div className={classes.navigation}>
+        <Item brand text="Overlay" />
         { this.props.children }
       </div>
     )
   }
-
 }
 
-export default Navigation
+Navigation.propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(style)(Navigation)

@@ -1,6 +1,10 @@
 export const style = {
   content: {
-    flexGrow: '2',
-    height: '100vh'
+    height: '100vh',
+    overflow: 'hidden',
+    '& > *': {
+      maxHeight: '100%',
+      overflowY: 'auto'
+    }
   }
 }

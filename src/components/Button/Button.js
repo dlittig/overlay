@@ -1,16 +1,20 @@
 import React from 'react'
+import withStyles from 'react-jss'
+import { MdOpenInNew } from "react-icons/md"
+import { style } from './Button.style'
 
 /**
  * This is the button that opens a new window on click
  */
-const Button = props => (
+const Button = ({classes, onClick, label}) => (
   <button
-    className="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom open"
-    onClick={props.onClick}
+    id="open"
+    className={classes.button}
+    onClick={onClick}
   >
-    {props.label}&nbsp;
-    <span uk-icon="icon: push; ratio: 0.8"></span>
+    {`${label} `}
+    <MdOpenInNew />
   </button>
 )
 
-export default Button
+export default withStyles(style)(Button)

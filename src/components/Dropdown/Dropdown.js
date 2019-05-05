@@ -1,34 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { style } from './Dropdown.style'
 import VideoAction from '../../store/actions/Video'
+import withStyles from 'react-jss'
 
-const style = {
-  select: {
-    marginTop: '-10px'
-  },
-  dropdown: {
-    backgroundColor: '#383838'
-  },
-  option: {
-    color: 'white'
-  }
-}
-
-const Dropdown = props => {
-  const {dispatch, resolution} = props
+const Dropdown = ({classes, setResolution, resolution}) => {
   return (
-    <div className="uk-inline uk-width-1-4" style={style.select}>
-      <select value={resolution} onChange={event => dispatch(VideoAction.setResolution(event.target.value))} className="uk-select" id="form-stacked-select" style={style.dropdown}>
-        <option value="480" style={style.option}>480p</option>
-        <option value="720" style={style.option}>720p</option>
-        <option value="1080" style={style.option}>1080p</option>
-        <option value="1440" style={style.option}>1440p</option>
-        <option value="2160" style={style.option}>2160p</option>
-      </select>
-    </div>
+    <select value={resolution} onChange={event => setResolution(event.target.value)} id="form-stacked-select" className={classes.select}>
+      <option value="480" className={classes.option}>480p</option>
+      <option value="720" className={classes.option}>720p</option>
+      <option value="1080" className={classes.option}>1080p</option>
+      <option value="1440" className={classes.option}>1440p</option>
+      <option value="2160" className={classes.option}>2160p</option>
+    </select>
   )
 }
 
 const mapStateToProps = ({video: {resolution}}) => ({resolution})
 
-export default connect(mapStateToProps)(Dropdown)
+const mapDispatchToProps = {
+  setResolution: VideoAction.setResolution
+}
+
+export default withStyles(style)(connect(mapStateToProps, mapDispatchToProps)(Dropdown))
