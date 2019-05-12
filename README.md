@@ -23,11 +23,6 @@ The package manager used here, is `yarn`. First install `yarn` for example with 
 brew install yarn
 ```
 
-For managing large (for the large distributables) GIT LFS is used. Installed it with brew, too:
-```
-brew install git-lfs
-```
-
 ### 1.2 Installing
 After installing `yarn` the setup is pretty straight forward. The project contains a `package.json` which lists all required packages. The file `yarn.lock` contains all the packages the developer used recently.
 
@@ -64,7 +59,7 @@ yarn make --platform=linux
 ```
 
 ## 3.2 Windows
-To deploy the application to the Windows plattform, a few prerequesits are required. 
+To deploy the application to the Windows plattform, a few prerequesits are required.
 Make sure to install the following tools before starting to package the application when your host is UNIX based:
 
 * [wine-stable](https://wiki.winehq.org/Ubuntu)
@@ -75,7 +70,7 @@ Then we need to setup some exports for wine, so the binaries are reachable from 
 ```
 export W=/opt/wine-stable
 export WINEVERPATH=$W
-export PATH=$W/bin:$PATH 
+export PATH=$W/bin:$PATH
 export WINESERVER=$W/bin/wineserver
 export WINELOADER=$W/bin/wine
 export WINEDLLPATH=$W/lib/wine/fakedlls
@@ -88,6 +83,17 @@ After this you can start the application bundling with the following command:
 yarn make --platform=win32
 ```
 
+**Alternatively** you can use a docker image for the deployment of the windows application. The proper docker image to use is this: `electronuserland/builder:wine`.
+
+## 3.3 MacOS
+The deployment process for MacOS is as easy as the process for Linux. Use this command, for building for MacOS:
+```
+yarn make --platform=darwin
+```
+
+## 3.4 Building for all
+As already mentioned, you can use a docker image for building for Windows, but this image is also suited for the deployment to Linux or MacOS. Use the script `do.sh` to deploy this app for all configured platforms.
+
 ## 3 Testing
 
 Tests are implemented with [Chai]() and [Chai-as-promised](). To run all the tests use the following yarn script:
@@ -95,17 +101,13 @@ Tests are implemented with [Chai]() and [Chai-as-promised](). To run all the tes
 yarn test
 ```
 
-## 4 Upcoming
-
-* Docker image for deployment to prevent dependency requirements
-
 ## Built with
 
 * [yarn](https://github.com/yarnpkg/yarn) - package management
 * [electron](https://github.com/electron/electron) - the base for all this stuff
 * [electron-forge](https://github.com/electron-userland/electron-forge) - boilerplate and build tools
-* [etch](https://github.com/atom/etch) - JSX components and life cycle
-* [uikit](https://github.com/uikit/uikit) - UI components
+* [react](https://github.com/facebook/react) - Reactive web components
+* [redux](https://github.com/reduxjs/redux) - Central data store
 * more
 
 ## Authors

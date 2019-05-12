@@ -13,7 +13,6 @@ import { MdOndemandVideo, MdHelp, MdInfo } from "react-icons/md"
 
 import { style } from './App.style'
 
-
 const pages = [
   <Video />,
   <Help />,
