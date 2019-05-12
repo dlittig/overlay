@@ -18,7 +18,7 @@ export default class DailymotionParser {
       return `https://dailymotion.com/embed/video/${video}?quality=${resolution}`
     } else {
       // Return parser error
-      notify('Failed to parse Dailymotion link', 2000)
+      notify('Failed to parse Dailymotion link', 2)
       return null
     }
   }

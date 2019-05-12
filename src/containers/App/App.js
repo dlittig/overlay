@@ -6,11 +6,13 @@ import Video from '../../routes/Video'
 import Help from '../../routes/Help'
 import About from '../../routes/About'
 import Content from '../../components/Content'
+import Notification from '../../components/Notification'
 import Navigation from '../../components/Navigation'
 import NavigationItem from '../../components/Navigation/Item'
 import { MdOndemandVideo, MdHelp, MdInfo } from "react-icons/md"
 
 import { style } from './App.style'
+
 
 const pages = [
   <Video />,
@@ -60,6 +62,7 @@ class App extends React.Component {
         <Content>
           { pages[this.state.selected] }
         </Content>
+        <Notification />
       </div>
     )
   }

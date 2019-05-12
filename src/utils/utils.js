@@ -1,5 +1,6 @@
 import URL from 'url-parse'
-global.UIkit = {}
+import { store } from '../store'
+import { info } from 'react-notification-system-redux';
 
 /**
  * Notifies the user about some circumstance
@@ -7,14 +8,13 @@ global.UIkit = {}
  * @param {*} time duration in milli seconds
  */
 const notify = (content, time) => {
-  //const UIkit = require('../../node_modules/uikit/dist/js/uikit.min.js')
-
-  UIkit.notification({
+  const notificationOpts = {
     message: content,
-    status: 'primary',
-    pos: 'bottom-center',
-    timeout: time
-  })
+    position: 'br',
+    autoDismiss: time
+  }
+
+  store.dispatch(info(notificationOpts))
 }
 
 const getQueryParameters = url => {

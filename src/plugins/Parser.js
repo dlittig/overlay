@@ -25,7 +25,7 @@ export default class Parser {
     } else if (url.includes('facebook.com')) {
       parser = new FacebookParser()
     } else {
-      notify('This URL is not supported.', 2000)
+      notify('This URL is not supported.', 2)
       return null
     }
 

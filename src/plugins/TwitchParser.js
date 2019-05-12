@@ -18,7 +18,7 @@ export default class TwitchParser {
       return `https://player.twitch.tv/?channel=${video}&quality=${this.map(resolution)}`
     } else {
       // Return parse error
-      notify('Failed to parse Twitch link', 2000)
+      notify('Failed to parse Twitch link', 2)
       return null
     }
   }

@@ -58,7 +58,7 @@ export default class YoutubeParser {
 
     } else {
       // Return error on UI
-      notify('Failed to parse Youtube link', 2000)
+      notify('Failed to parse Youtube link', 2)
       return null
     }
   }
