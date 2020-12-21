@@ -16,6 +16,7 @@ const createWindow = () => {
     show: false,
     backgroundColor: "#333",
     webPreferences: {
+      enableRemoteModule: true,
       nodeIntegration: true
     },
     icon: path.join(__dirname, "assets/icons/favicon.png")
