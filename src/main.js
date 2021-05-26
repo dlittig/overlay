@@ -17,9 +17,10 @@ const createWindow = () => {
     backgroundColor: "#333",
     webPreferences: {
       enableRemoteModule: true,
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation: false,
     },
-    icon: path.join(__dirname, "assets/icons/favicon.png")
+    icon: path.join(__dirname, "assets/icons/favicon.png"),
   });
 
   mainWindow.once("ready-to-show", () => {
@@ -29,9 +30,9 @@ const createWindow = () => {
   mainWindow.removeMenu();
 
   // and load the index.html of the app.
-  if(typeof MAIN_WINDOW_WEBPACK_ENTRY === "undefined") {
-    mainWindow.loadURL("http://localhost:3000/main_window")
-  } else  {
+  if (typeof MAIN_WINDOW_WEBPACK_ENTRY === "undefined") {
+    mainWindow.loadURL("http://localhost:3000/main_window");
+  } else {
     mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
   }
 
