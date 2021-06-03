@@ -158,4 +158,4 @@ yarn-error.log*
 /out
 
 # Webpack
-/.webpack
+/.webpack/*

@@ -5,17 +5,15 @@ import classNames from "classnames";
 import { style } from "./About.style";
 import { GoMarkGithub, GoHeart } from "react-icons/go";
 import Code from "../../components/Code";
+import packageJson from "../../../package.json";
 
-const getVersion = () => {
-  console.log(electron)
-  electron.remote.app.getVersion();
-}
+const getVersion = () => packageJson.version;
 
 /**
  * Contains the html for the `about` tab
  */
 const About = ({ classes }) => (
-  <div className={classes.about}>
+  <div className={classes.about} data-test-id="about">
     <p className={classNames(classes.heading, classes.top)}>
       <b>Author:</b>
     </p>
