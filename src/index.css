@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Plex';
+  src: url("./assets/fonts/IBMPlexSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Plex';
+  src: url("./assets/fonts/IBMPlexSans-Bold.ttf");
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plex';
+  color: #eee;
+}
