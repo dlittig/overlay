@@ -103,6 +103,6 @@
     "react-notification-system-redux": "^2.0.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "url-parse": "^1.4.7"
+    "url-parse": "^1.5.2"
   }
 }
