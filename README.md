@@ -48,55 +48,13 @@ yarn lint
 
 ## 3 Deployment
 To build an executable for your current plattform use the following command.
-```
-yarn make
-```
-
-## 3.1 Linux
-For linux no other tools are required. To build this application for linux, type this command:
-```
-yarn make --platform=linux
+```bash
+yarn build
 ```
 
-## 3.2 Windows
-To deploy the application to the Windows plattform, a few prerequesits are required.
-Make sure to install the following tools before starting to package the application when your host is UNIX based:
+## 4 Testing
 
-* [wine-stable](https://wiki.winehq.org/Ubuntu)
-* [mono-devel](http://www.mono-project.com/download/stable/#download-lin-ubuntu)
-* `wine-gecko*`
-
-Then we need to setup some exports for wine, so the binaries are reachable from anywhere:
-```
-export W=/opt/wine-stable
-export WINEVERPATH=$W
-export PATH=$W/bin:$PATH
-export WINESERVER=$W/bin/wineserver
-export WINELOADER=$W/bin/wine
-export WINEDLLPATH=$W/lib/wine/fakedlls
-```
-
-Load the changes from the file for example with `source ~/.bash_profile`
-
-After this you can start the application bundling with the following command:
-```
-yarn make --platform=win32
-```
-
-**Alternatively** you can use a docker image for the deployment of the windows application. The proper docker image to use is this: `electronuserland/builder:wine`.
-
-## 3.3 MacOS
-The deployment process for MacOS is as easy as the process for Linux. Use this command, for building for MacOS:
-```
-yarn make --platform=darwin
-```
-
-## 3.4 Building for all
-As already mentioned, you can use a docker image for building for Windows, but this image is also suited for the deployment to Linux or MacOS. Use the script `do.sh` to deploy this app for all configured platforms.
-
-## 3 Testing
-
-Tests are implemented with [Chai]() and [Chai-as-promised](). To run all the tests use the following yarn script:
+To run all the tests use the following yarn script:
 ```
 yarn test
 ```
@@ -105,7 +63,7 @@ yarn test
 
 * [yarn](https://github.com/yarnpkg/yarn) - package management
 * [electron](https://github.com/electron/electron) - the base for all this stuff
-* [electron-forge](https://github.com/electron-userland/electron-forge) - boilerplate and build tools
+* [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate) - boilerplate and build tools
 * [react](https://github.com/facebook/react) - Reactive web components
 * [redux](https://github.com/reduxjs/redux) - Central data store
 * more
